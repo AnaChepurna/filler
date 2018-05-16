@@ -36,6 +36,7 @@ FILES = ft_lstprint.c ft_striter.c ft_lstrm.c ft_striteri.c \
 	  get_next_line.c ft_strsplitm.c ft_strsplitmq.c ft_pathjoin.c \
 	  delete_quotes.c
 O_FILES = $(addprefix $(OBJ), $(FILES:.c=.o))
+HEADERS = libft.h get_next_line.h
 
 all: $(NAME)
 
@@ -46,7 +47,7 @@ $(NAME): $(OBJ) $(O_FILES)
 $(OBJ):
 	mkdir -p $@
 
-$(OBJ)%.o: $(SRC)%.c
+$(OBJ)%.o: $(SRC)%.c $(HEADERS)
 	$(CC) -c $(CFLAGS) -I $(INCL) $< -o $@
 
 clean:

@@ -12,17 +12,12 @@
 
 CC = gcc
 CFLAG = -Wall -Wextra -Werror
-NAME = ft_select
+NAME = achepurn.filler
+INCL = filler.h
 SRC_DIR = src/
 FILES = main.c \
-		terminal.c \
-		signal.c \
-		utils.c \
-		interface.c \
-		display.c \
-		control.c \
-		command.c \
-		search.c
+		error.c \
+		map.c 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(SRC:.c=.o)
 LIB = libft/libft.a
@@ -32,7 +27,7 @@ all: $(NAME)
 $(NAME): $(LIB) $(OBJ)
 	$(CC) $(OBJ) libft/libft.a -o $(NAME) -ltermcap
 
-%.o: %.c
+%.o: %.c $(INCL)
 	$(CC) -c $(CFLAG) $< -o $@
 
 clean:
@@ -44,6 +39,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 $(LIB):
-	make -C libft
+	make -C libft re
 
 re: fclean all
