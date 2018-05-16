@@ -11,6 +11,17 @@ typedef struct		s_map
 	char			**map;
 }					t_map;
 
+typedef struct 		s_coord
+{
+	int				x;
+	int				y;
+}					t_coord;
+
+typedef struct 		s_piece
+{
+	t_list			*cells;
+}					t_piece;
+
 /*
 **map.c
 */
