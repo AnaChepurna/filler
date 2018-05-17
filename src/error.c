@@ -1,7 +1,7 @@
 #include "../filler.h"
 
-void	map_error(void)
+void	input_error(void)
 {
-	ft_putstr_fd("Wrong map!\n", 2);
+	ft_putstr_fd("Wrong input!\n", 2);
 	exit(0);
 }

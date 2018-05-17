@@ -18,29 +18,34 @@ void	clear_map(t_map **map)
 	*map = NULL;
 }
 
-void	parse_size(t_map *map)
+void	parse_size(t_map *map, int *mode)
 {
 	char	*str;
 	int		len;
 
 	len = 8;
-	if (get_next_line(1, &str) > 0 && ft_strnequ(str, "Plateau ", len))
+	*mode = PIECE;
+	if (get_next_line(1, &str) > 0)
 	{
+		if (ft_strnequ(str, "Plateau ", 8))
+			*mode = MAP;
+		else if (ft_strnequ(str, "Piece ", 6))
+			len = 6;
 		map->y = ft_atoi(str + len);
 		while (ft_isdigit(*(str + len)))
 			len++;
 		map->x = ft_atoi(str + len);
 		free(str);
-		if (get_next_line(1, &str) > 0)
+		if ( *mode == MAP && get_next_line(1, &str) > 0)
 			free(str);
-		else
-			map_error();
+		else if (*mode == MAP)
+			input_error();
 	}
 	else
-		map_error();
+		input_error();
 }
 
-void	parse_map(t_map *map)
+void	parse_map(t_map *map, int mode)
 {
 	char	*str;
 	char	**res;
@@ -52,8 +57,8 @@ void	parse_map(t_map *map)
 		while (++i < map->y)
 		{
 			if (get_next_line(1, &str) <= 0)
-				map_error();
-			res[i] = ft_strdup(str + 4);
+				input_error();
+			res[i] = ft_strdup(str + mode);
 			free(str);
 		}
 		res[i] = NULL;
@@ -64,11 +69,12 @@ void	parse_map(t_map *map)
 t_map	*get_map(void)
 {
 	t_map	*map;
+	int		mode;
 
 	if ((map = new_map()))
 	{
-		parse_size(map);
-		parse_map(map);
+		parse_size(map, &mode);
+		parse_map(map, mode);
 	}
 	return (map);
 }

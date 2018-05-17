@@ -4,6 +4,9 @@
 # include "libft/libft.h"
 # include <fcntl.h>
 
+# define MAP	4
+# define PIECE	0
+
 typedef struct		s_map
 {
 	int 			x;
@@ -11,19 +14,15 @@ typedef struct		s_map
 	char			**map;
 }					t_map;
 
-typedef struct 		s_coord
-{
-	int				x;
-	int				y;
-}					t_coord;
-
-typedef struct 		s_piece
-{
-	t_list			*cells;
-}					t_piece;
+// typedef struct 		s_piece
+// {
+// 	int				x;
+// 	int				y;
+// 	char			**piece;
+// }					t_piece;
 
 /*
-**map.c
+**parse.c
 */
 t_map				*get_map(void);
 void				clear_map(t_map **map);
@@ -31,6 +30,6 @@ void				clear_map(t_map **map);
 /*
 **error.c
 */
-void				map_error(void);
+void				input_error(void);
 
 #endif

@@ -17,7 +17,7 @@ INCL = filler.h
 SRC_DIR = src/
 FILES = main.c \
 		error.c \
-		map.c 
+		parse.c 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(SRC:.c=.o)
 LIB = libft/libft.a
