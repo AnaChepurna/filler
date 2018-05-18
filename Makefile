@@ -18,7 +18,9 @@ SRC_DIR = src/
 FILES = main.c \
 		error.c \
 		parse.c \
-		memory.c
+		memory.c \
+		analyze.c \
+		algorythm.c
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(SRC:.c=.o)
 LIB = libft/libft.a
@@ -26,7 +28,7 @@ LIB = libft/libft.a
 all: $(NAME)
 
 $(NAME): $(LIB) $(OBJ)
-	$(CC) $(OBJ) libft/libft.a -o $(NAME) -ltermcap
+	$(CC) $(OBJ) libft/libft.a -o $(NAME)
 
 %.o: %.c $(INCL)
 	$(CC) -c $(CFLAG) $< -o $@

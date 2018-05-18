@@ -4,7 +4,7 @@ char			get_player(char *name)
 {
 	char	*str;
 
-	if (get_next_line(1, &str) > 0)
+	if (get_next_line(0, &str) > 0)
 	{
 		if (ft_strstr(str, name))
 		{
@@ -25,7 +25,7 @@ static void		parse_size(t_map *map, int *mode)
 
 	len = 8;
 	*mode = PIECE;
-	if (get_next_line(1, &str) > 0)
+	if (get_next_line(0, &str) > 0)
 	{
 		if (ft_strnequ(str, "Plateau ", 8))
 			*mode = MAP;
@@ -36,7 +36,7 @@ static void		parse_size(t_map *map, int *mode)
 			len++;
 		map->x = ft_atoi(str + len);
 		free(str);
-		if ( *mode == MAP && get_next_line(1, &str) > 0)
+		if ( *mode == MAP && get_next_line(0, &str) > 0)
 			free(str);
 		else if (*mode == MAP)
 			input_error();
@@ -56,7 +56,7 @@ static void		parse_map(t_map *map, int mode)
 		i = -1;
 		while (++i < map->y)
 		{
-			if (get_next_line(1, &str) <= 0)
+			if (get_next_line(0, &str) <= 0)
 				input_error();
 			res[i] = ft_strdup(str + mode);
 			free(str);

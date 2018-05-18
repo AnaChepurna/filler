@@ -45,6 +45,13 @@ char				get_player(char *name);
 */
 void				get_start_positions(t_board *board, t_map *map,
 	char player);
+int					check_place(t_map *map, t_map *piece, t_board *board,
+	char player);
+
+/*
+**algorythm.c
+*/
+int					algorythm(t_map *map, t_map *piece, t_board *board, char player);
 
 /*
 **error.c

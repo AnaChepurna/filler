@@ -6,8 +6,16 @@ void	game(t_map *map, t_map *piece, char	player)
 
 	board = new_board();
 	get_start_positions(board, map, player);
-	
-	clear_boad(&board);
+	if (algorythm(map, piece, board, player))
+	{
+		ft_putnbr(board->y_place);
+		ft_putchar(' ');
+		ft_putnbr(board->x_place);
+		ft_putchar('\n');
+		board->y_start_player = board->y_place;
+		board->x_start_player = board->x_place;
+	}
+	clear_board(&board);
 }
 
 int 	main(int c, char **v)

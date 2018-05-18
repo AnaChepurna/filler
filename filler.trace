@@ -1,4 +1,3 @@
-seed = 2423
-../rrr/resources/players/lcharvol.filler won
-Score:
-56AGAINST80
+seed = 1969
+O: error on input
+./achepurn.filler: Segfault at 1

@@ -22,7 +22,7 @@ int		check_place(t_map *map, t_map *piece, t_board *board, char player)
 			}
 		}
 	}
-	return (0)
+	return (0);
 }
 
 void	get_start_positions(t_board *board, t_map *map, char player)
@@ -41,14 +41,29 @@ void	get_start_positions(t_board *board, t_map *map, char player)
 		{
 			if (map->map[y][x] == P1 || map->map[y][x] == P1 - 32)
 			{
-				player == P1 ? board->y_start_player = y ? board->y_start_rival = y;
-				player == P1 ? board->x_start_player = x ? board->x_start_rival = x;
+				if (player == P1)
+				{
+					board->y_start_player = y;
+					board->x_start_player = x;
+				}
+				else
+				{
+					 board->y_start_rival = y;
+					 board->x_start_rival = x;
+				}
 			}
 			if (map->map[y][x] == P2 || map->map[y][x] == P2 - 32)
 			{
-				player == P2 ? board->y_start_player = y ? board->y_start_rival = y;
-				player == P2 ? board->x_start_player = x ? board->x_start_rival = x;
-
+				if (player == P2)
+				{
+					board->y_start_player = y;
+					board->x_start_player = x;
+				}
+				else
+				{
+					 board->y_start_rival = y;
+					 board->x_start_rival = x;
+				}
 			}
 		}
 	}
