@@ -1,24 +1,24 @@
 #include "../filler.h"
 
-t_map	*new_map(void)
+char			get_player(char *name)
 {
-	t_map	*res;
+	char	*str;
 
-	if ((res = (t_map *)malloc(sizeof(t_map))))
-		res->map = NULL;
-	return (res);
+	if (get_next_line(1, &str) > 0)
+	{
+		if (ft_strstr(str, name))
+		{
+			if (ft_strstr(str, "p1"))
+				return (P1);
+			if (ft_strstr(str, "p2"))
+				return (P2);
+		}
+		free(str);
+	}
+	return (0);
 }
 
-void	clear_map(t_map **map)
-{
-	if (*map && (*map)->map)
-		ft_arrfree((&(*map)->map));
-	if (*map)
-		free(*map);
-	*map = NULL;
-}
-
-void	parse_size(t_map *map, int *mode)
+static void		parse_size(t_map *map, int *mode)
 {
 	char	*str;
 	int		len;
@@ -45,7 +45,7 @@ void	parse_size(t_map *map, int *mode)
 		input_error();
 }
 
-void	parse_map(t_map *map, int mode)
+static void		parse_map(t_map *map, int mode)
 {
 	char	*str;
 	char	**res;
@@ -66,7 +66,7 @@ void	parse_map(t_map *map, int mode)
 	map->map = res;
 }
 
-t_map	*get_map(void)
+t_map			*get_map(void)
 {
 	t_map	*map;
 	int		mode;

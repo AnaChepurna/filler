@@ -1,31 +1,29 @@
 #include "../filler.h"
 
-int main(int argc, char const *argv[])
+void	game(t_map *map, t_map *piece, char	player)
 {
-	t_map *map;
-	t_map *piece;
+	t_board *board;
 
-	(void)argv;
-	(void)argc;
-	map = get_map();
+	board = new_board();
 
-	int i = 0;
-	while (i < map->y)
+	clear_boad(&board);
+}
+
+int 	main(int c, char **v)
+{
+	t_map 	*map;
+	t_map 	*piece;
+	char	player;
+
+	(void)c;
+	player = get_player(v[0]);
+	while (42)
 	{
-		ft_putendl(map->map[i]);
-		i++;
+		map = get_map();
+		piece = get_map();
+		game(map, piece, player);
+		clear_map(&map);
+		clear_map(&piece);
 	}
-	clear_map(&map);
-
-	piece = get_map();
-
-	i = 0;
-	while (i < piece->y)
-	{
-		ft_putendl(piece->map[i]);
-		i++;
-	}
-	clear_map(&piece);
-	//ft_putstr("0 0");
-	return 0;
+	return (0);
 }
