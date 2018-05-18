@@ -4,7 +4,10 @@ int		check_place(t_map *map, t_map *piece, t_board *board, char player)
 {
 	int		x;
 	int		y;
+	//ft_putendl_fd("check", 2);
 
+	if (board->y_place + piece->y > map->y || board->x_place + piece->x > map->x)
+		return (0);
 	y = -1;
 	while (++y < piece->y)
 	{
@@ -30,6 +33,8 @@ void	get_start_positions(t_board *board, t_map *map, char player)
 	static int	n = 0;
 	int			x;
 	int			y;
+
+	ft_putendl_fd("get start", 2);
 
 	if (n++)
 		return ;
