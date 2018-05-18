@@ -5,7 +5,8 @@ void	game(t_map *map, t_map *piece, char	player)
 	t_board *board;
 
 	board = new_board();
-
+	get_start_positions(board, map, player);
+	
 	clear_boad(&board);
 }
 

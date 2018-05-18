@@ -21,7 +21,9 @@ typedef struct 		s_board
 	int				y_start_player;
 	int				x_start_player;
 	int				y_start_rival;
-	int				x_start_rival;		
+	int				x_start_rival;
+	int				y_place;
+	int				x_place;	
 }					t_board;
 
 /*
