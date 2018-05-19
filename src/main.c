@@ -1,5 +1,11 @@
 #include "../filler.h"
 
+void	input_error(void)
+{
+	ft_putstr_fd("Wrong input!\n", 2);
+	exit(0);
+}
+
 void	game(t_map *map, t_map *piece, char	player)
 {
 	static t_board *board = NULL;
@@ -8,9 +14,13 @@ void	game(t_map *map, t_map *piece, char	player)
 		board = new_board();
 	ft_putendl_fd("game", 2);
 	get_start_positions(board, map, player);
-	algorythm(map, piece, board, player);
-	ft_putendl_fd("to print", 2);
-
+	if (!algorythm1(map, piece, board, player))
+		area_4(map, piece, board, player);
+	ft_putstr_fd("to print ", 2);
+	ft_putnbr_fd(board->y_place, 2);
+	ft_putchar_fd(' ', 2);
+	ft_putnbr_fd(board->x_place, 2);
+	ft_putchar_fd('\n', 2);
 		ft_putnbr(board->y_place);
 		ft_putchar(' ');
 		ft_putnbr(board->x_place);

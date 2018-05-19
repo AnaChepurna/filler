@@ -16,11 +16,11 @@ NAME = achepurn.filler
 INCL = filler.h
 SRC_DIR = src/
 FILES = main.c \
-		error.c \
 		parse.c \
 		memory.c \
 		analyze.c \
-		algorythm.c
+		algorythm1.c \
+		algorythm2.c
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(SRC:.c=.o)
 LIB = libft/libft.a

@@ -1,6 +1,6 @@
 #include "../filler.h"
 
-static int		area_1(t_map *map, t_map *piece, t_board *board, char player)
+int				area_1(t_map *map, t_map *piece, t_board *board, char player)
 {
 	ft_putendl_fd("2", 2);
 	board->y_place = map->y;
@@ -52,7 +52,7 @@ static int		area_3(t_map *map, t_map *piece, t_board *board, char player)
 	return (0);
 }
 
-static int		area_4(t_map *map, t_map *piece, t_board *board, char player)
+int		area_4(t_map *map, t_map *piece, t_board *board, char player)
 {
 	ft_putendl_fd("4", 2);
 	board->y_place = -1;
@@ -68,7 +68,7 @@ static int		area_4(t_map *map, t_map *piece, t_board *board, char player)
 	return (0);
 }
 
-int				algorythm(t_map *map, t_map *piece, t_board *board, char player)
+int				algorythm1(t_map *map, t_map *piece, t_board *board, char player)
 {
 	ft_putendl_fd("algo", 2);
 	if (board->y_start_player < map->y / 2)

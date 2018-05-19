@@ -4,10 +4,11 @@
 # include "libft/libft.h"
 # include <fcntl.h>
 
-# define MAP	4
-# define PIECE	0
-# define P1		'o'
-# define P2		'x'
+# define MAP		4
+# define PIECE		0
+# define P1			'o'
+# define P2			'x'
+# define RIVAL(x)	((x) == P1 ? P2 : P1)
 
 typedef struct		s_map
 {
@@ -47,14 +48,17 @@ void				get_start_positions(t_board *board, t_map *map,
 	char player);
 int					check_place(t_map *map, t_map *piece, t_board *board,
 	char player);
+int					check_rival(t_map *map, char player);
 
 /*
-**algorythm.c
+**algorythm1.c
 */
-int					algorythm(t_map *map, t_map *piece, t_board *board, char player);
+int					algorythm1(t_map *map, t_map *piece, t_board *board, char player);
+int					area_1(t_map *map, t_map *piece, t_board *board, char player);
+int					area_4(t_map *map, t_map *piece, t_board *board, char player);
 
 /*
-**error.c
+**main.c
 */
 void				input_error(void);
 
