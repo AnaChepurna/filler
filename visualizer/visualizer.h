@@ -16,7 +16,7 @@
 # define CHR		2
 
 struct termios	*manage_term(int mode);
-int				get_map(void);
+int				get_map(int t);
 void			start_signal_handling(void);
 
 #endif

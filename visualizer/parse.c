@@ -29,7 +29,7 @@ static int		parse_results(char **str)
 	return (0);
 }
 
-static int		parse_size(int *x, int *y)
+static int		parse_size(int *x, int *y, int t)
 {
 	char	*str;
 	int		len;
@@ -39,6 +39,11 @@ static int		parse_size(int *x, int *y)
 	{
 		if (ft_strnequ(str, "Plateau ", len))
 		{
+			if (!t)
+			{
+				free(str);
+				return (1);
+			}
 			ft_putstr_fd(tgetstr("cl", NULL), 2);
 			*y = ft_atoi(str + len);
 			while (ft_isdigit(*(str + len)))
@@ -52,13 +57,13 @@ static int		parse_size(int *x, int *y)
 		else if (!parse_results(&str))
 		{
 			free(str);
-			return (parse_size(x, y));
+			return (parse_size(x, y, t));
 		}
 	}
 	return (0);
 }
 
-static int		parse_map(int x, int y)
+static int		parse_map(int x, int y, int t)
 {
 	char	*str;
 	int		i;
@@ -69,6 +74,11 @@ static int		parse_map(int x, int y)
 	{
 		if (get_next_line(0, &str) <= 0)
 			return (0);
+		if (!t)
+		{
+			free(str);
+			return (1);
+		}
 		j = -1;
 		while (++j < 4)
 			print_color(str + j, YELLOW, CHR);
@@ -88,18 +98,17 @@ static int		parse_map(int x, int y)
 	return (1);
 }
 
-int			get_map(void)
+int			get_map(int t)
 {
 	int		x;
 	int		y;
 
-	if (parse_size(&x, &y) && parse_map(x, y))
+	if (parse_size(&x, &y, t) && parse_map(x, y, t))
 	{
 		return (1);
 	}
 	else
 	{
-
 		return (0);
 	}
 }
