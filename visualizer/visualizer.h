@@ -5,6 +5,7 @@
 # include <fcntl.h>
 # include <termcap.h>
 # include <termios.h>
+# include <sys/ioctl.h>
 
 # define INIT		1
 # define SET		2
@@ -16,5 +17,6 @@
 
 struct termios	*manage_term(int mode);
 int				get_map(void);
+void			start_signal_handling(void);
 
 #endif

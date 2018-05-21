@@ -5,6 +5,7 @@ int main(void)
 	char b;
 	manage_term(INIT);
 	manage_term(SET);
+	start_signal_handling();
 	while (get_map())
 	{
 		usleep(50000);

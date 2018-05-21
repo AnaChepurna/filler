@@ -4,7 +4,8 @@ NAME = ../visual
 INCL = visualizer.h
 SRC = main.c \
 		parse.c \
-		terminal.c
+		terminal.c \
+		signal.c
 OBJ = $(SRC:.c=.o)
 LIB = ../libft/libft.a
 
