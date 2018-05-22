@@ -40,7 +40,7 @@ static int		is_near_rival(int x, int y, t_map *map, char player)
 	while (y1 > -1 && y1 < map->y && y1 <= y + 1)
 	{
 		x1 = x - 1;
-		while (x1 > -1 && x1 < map->x && x1 <= x - 1)
+		while (x1 > -1 && x1 < map->x && x1 <= x + 1)
 		{
 			if (map->map[y1][x1] == rival || map->map[y1][x1] == rival - 32)
 				return (1);
