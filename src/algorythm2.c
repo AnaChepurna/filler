@@ -68,22 +68,22 @@ int				algorythm2(t_map *map, t_map *piece, t_board *board)
 {
 	if (check_rival(map, board->player))
 	{
-		if (board->y_start_player < map->y / 2)
-		{
-			if (board->x_start_player < map->x / 3)
+		// if (board->y_start_player < map->y / 2)
+		// {
+		// 	// if (board->x_start_player < map->x / 3)
+		// 	// 	return (area2_3(map, piece, board));
+		// 	if (board->x_start_player < map->x * 3 / 4)
+		// 		return (area2_1(map, piece, board));
+		// 	else
+		// 		return (area2_2(map, piece, board));
+		// }
+		// else
+		// {
+		// 	if (board->x_start_player < map->x * 3 / 4)
+		// 	return (area2_4(map, piece, board));
+		// 	else
 				return (area2_3(map, piece, board));
-			if (board->x_start_player < map->x * 3 / 4)
-				return (area2_1(map, piece, board));
-			else
-				return (area2_2(map, piece, board));
-		}
-		else
-		{
-			if (board->x_start_player < map->x * 3 / 4)
-			return (area2_4(map, piece, board));
-			else
-				return (area2_4(map, piece, board));
-		}
+		//}
 	}
 	else
 	{
