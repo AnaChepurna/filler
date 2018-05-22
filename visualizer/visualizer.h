@@ -6,6 +6,7 @@
 # include <termcap.h>
 # include <termios.h>
 # include <sys/ioctl.h>
+# include <signal.h>
 
 # define INIT		1
 # define SET		2

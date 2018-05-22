@@ -56,6 +56,8 @@ int					algorythm1(t_map *map, t_map *piece, t_board *board);
 int					area_1(t_map *map, t_map *piece, t_board *board);
 int					area_4(t_map *map, t_map *piece, t_board *board);
 int					area_3(t_map *map, t_map *piece, t_board *board);
+int					area_2(t_map *map, t_map *piece, t_board *board);
+
 
 int				algorythm2(t_map *map, t_map *piece, t_board *board);
 int		check_place_rival(t_map * map, t_map *piece, t_board *board);

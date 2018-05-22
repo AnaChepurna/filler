@@ -88,6 +88,6 @@ int				algorythm2(t_map *map, t_map *piece, t_board *board)
 		if (board->y_start_player < board->y_start_rival)
 			return (area_1(map, piece, board));
 		else
-			return (area_3(map, piece, board));
+			return (area_4(map, piece, board));
 	}
 }
