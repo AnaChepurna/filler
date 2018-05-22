@@ -6,9 +6,6 @@ char			get_player(char *name)
 
 	if (get_next_line(0, &str) > 0)
 	{
-		ft_putstr_fd(RED, 2);
-		ft_putendl_fd(str, 2);
-		ft_putstr_fd(RESET, 2);
 		if (ft_strstr(str, name))
 		{
 			if (ft_strstr(str, "p1"))
@@ -30,9 +27,6 @@ static void		parse_size(t_map *map, int *mode)
 	*mode = PIECE;
 	if (get_next_line(0, &str) > 0)
 	{
-		ft_putstr_fd(RED, 2);
-		ft_putendl_fd(str, 2);
-		ft_putstr_fd(RESET, 2);
 		if (ft_strnequ(str, "Plateau ", 8))
 			*mode = MAP;
 		else if (ft_strnequ(str, "Piece ", 6))
@@ -43,12 +37,7 @@ static void		parse_size(t_map *map, int *mode)
 		map->x = ft_atoi(str + len);
 		free(str);
 		if ( *mode == MAP && get_next_line(0, &str) > 0)
-		{
-			ft_putstr_fd(RED, 2);
-		ft_putendl_fd(str, 2);
-		ft_putstr_fd(RESET, 2);
 			free(str);
-		}
 		else if (*mode == MAP)
 		{
 			ft_putendl_fd("no line", 2);
@@ -78,9 +67,6 @@ static void		parse_map(t_map *map, int mode)
 				ft_putendl_fd("on parse map", 2);
 				input_error();
 			}
-			ft_putstr_fd(RED, 2);
-		ft_putendl_fd(str, 2);
-		ft_putstr_fd(RESET, 2);
 			res[i] = ft_strdup(str + mode);
 			free(str);
 		}

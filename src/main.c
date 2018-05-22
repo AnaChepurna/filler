@@ -9,18 +9,22 @@ void	input_error(void)
 void	game(t_map *map, t_map *piece, char	player)
 {
 	static t_board *board = NULL;
+	int status;
 
 	if (!board)
 		board = new_board();
-	ft_putendl_fd("game", 2);
-	get_start_positions(board, map, player);
-	if (!algorythm1(map, piece, board, player))
-		area_4(map, piece, board, player);
-	ft_putstr_fd("to print ", 2);
-	ft_putnbr_fd(board->y_place, 2);
-	ft_putchar_fd(' ', 2);
-	ft_putnbr_fd(board->x_place, 2);
-	ft_putchar_fd('\n', 2);
+	board->player = player;
+	get_start_positions(board, map);
+	if (map->x * map->y > 400)
+	{
+		status = algorythm2(map, piece, board);
+		if (!status)
+			status = algorythm1(map, piece, board);
+	}
+	else
+		status = algorythm1(map, piece, board);
+	if (!status)
+		area_4(map, piece, board);
 		ft_putnbr(board->y_place);
 		ft_putchar(' ');
 		ft_putnbr(board->x_place);

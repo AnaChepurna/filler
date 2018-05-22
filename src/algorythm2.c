@@ -1,61 +1,93 @@
 #include "../filler.h"
 
-static int		count_rival(t_map *map, t_map *piece, char player, int x, int y)
+int				area2_1(t_map *map, t_map *piece, t_board *board)
 {
-	int	x1;
-	int y1;
-	int n;
-	int count;
-
-	y1 = -1;
-	count = 0;
-	while (++y1 < piece->y)
+	board->y_place = map->y;
+	while (board->y_place > 0)
 	{
-		x1 = -1;
-		while (++x1 < piece->x)
+		board->x_place = map->x;
+		while (board->x_place > 0)
 		{
-			n = 0;
-			while (++o < 4)
+			if (check_place(map, piece, board) && check_place_rival(map, piece, board))
+				return (1);
+			board->x_place--;
+		}
+		board->y_place--;
+	}
+	return (0);
+}
+
+static int		area2_2(t_map *map, t_map *piece, t_board *board)
+{
+	board->y_place = map->y;
+	while (board->y_place > 0)
+	{
+		board->x_place = -1;
+		while (++(board->x_place) < map->x)
+		{
+			if (check_place(map, piece, board) && check_place_rival(map, piece, board))
+				return (1);
+		}
+		board->y_place--;
+	}
+	return (0);
+}
+
+int				area2_3(t_map *map, t_map *piece, t_board *board)
+{
+	board->y_place = -1;
+	while (++(board->y_place) < map->y)
+	{
+		board->x_place = map->x;
+		while (board->x_place > 0)
+		{
+			if (check_place(map, piece, board) && check_place_rival(map, piece, board))
+				return (1);
+			board->x_place--;
 		}
 	}
+	return (0);
 }
 
-static int		ring_rival(t_map *map, t_map *piece, t_board *board, char player)
+int		area2_4(t_map *map, t_map *piece, t_board *board)
 {
-	int 	x;
-	int		y;
-	int		count;
-	int		tmp;
-
-	count = -1;
-	y = map->y;
-	while (--y >= 0)
+	board->y_place = -1;
+	while (++(board->y_place) < map->y)
 	{
-		x = map->x;
-		while (--x >= 0)
-			if (chech_place(map, piece, board, player))
-			{
-				tmp = count_rival(map, piece, player, x, y);
-				if (tmp > count)
-				{
-					count = tmp;
-					board->y_place = y;
-					board->x_place = x;
-				}
-			}
+		board->x_place = -1;
+		while (++(board->x_place) < map->x)
+		{
+			if (check_place(map, piece, board) && check_place_rival(map, piece, board))
+				return (1);
+		}
 	}
-	return (count > -1 ? 1 : 0);
+	return (0);
 }
 
-int				algorythm2(t_map *map, t_map *piece, t_board *board, char player)
+int				algorythm2(t_map *map, t_map *piece, t_board *board)
 {
-	if (chech_rival(map, player))
-		return (ring_rival(map, piece, board, player));
+	if (check_rival(map, board->player))
+	{
+		if (board->y_start_player < map->y / 2)
+		{
+			if (board->x_start_player < map->x / 2)
+				return (area2_1(map, piece, board));
+			else
+				return (area2_2(map, piece, board));
+		}
+		else
+		{
+			if (board->x_start_player < map->x / 2)
+				return (area2_3(map, piece, board));
+			else
+				return (area2_4(map, piece, board));
+		}
+	}
 	else
 	{
 		if (board->y_start_player < board->y_start_rival)
-			return (area_1(map, piece, board, player));
+			return (area_1(map, piece, board));
 		else
-			return (area_4(map, piece, board, player));
+			return (area_3(map, piece, board));
 	}
 }

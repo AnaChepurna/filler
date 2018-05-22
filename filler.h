@@ -19,6 +19,7 @@ typedef struct		s_map
 
 typedef struct 		s_board
 {
+	char			player;	
 	int				y_start_player;
 	int				x_start_player;
 	int				y_start_rival;
@@ -44,19 +45,20 @@ char				get_player(char *name);
 /*
 **analyze.c
 */
-void				get_start_positions(t_board *board, t_map *map,
-	char player);
-int					check_place(t_map *map, t_map *piece, t_board *board,
-	char player);
+void				get_start_positions(t_board *board, t_map *map);
+int					check_place(t_map *map, t_map *piece, t_board *board);
 int					check_rival(t_map *map, char player);
 
 /*
 **algorythm1.c
 */
-int					algorythm1(t_map *map, t_map *piece, t_board *board, char player);
-int					area_1(t_map *map, t_map *piece, t_board *board, char player);
-int					area_4(t_map *map, t_map *piece, t_board *board, char player);
+int					algorythm1(t_map *map, t_map *piece, t_board *board);
+int					area_1(t_map *map, t_map *piece, t_board *board);
+int					area_4(t_map *map, t_map *piece, t_board *board);
+int					area_3(t_map *map, t_map *piece, t_board *board);
 
+int				algorythm2(t_map *map, t_map *piece, t_board *board);
+int		check_place_rival(t_map * map, t_map *piece, t_board *board);
 /*
 **main.c
 */
