@@ -17,7 +17,7 @@ int				area2_1(t_map *map, t_map *piece, t_board *board)
 	return (0);
 }
 
-static int		area2_2(t_map *map, t_map *piece, t_board *board)
+int		area2_2(t_map *map, t_map *piece, t_board *board)
 {
 	board->y_place = map->y;
 	while (board->y_place > 0)
@@ -70,8 +70,8 @@ int				algorythm2(t_map *map, t_map *piece, t_board *board)
 	{
 		if (board->y_start_player < map->y / 2)
 		{
-			// if (board->x_start_player < map->x / 3)
-			// 	return (area2_3(map, piece, board));
+			if (board->x_start_player < map->x / 3)
+				return (area2_3(map, piece, board));
 			if (board->x_start_player < map->x * 3 / 4)
 				return (area2_1(map, piece, board));
 			else
@@ -80,7 +80,7 @@ int				algorythm2(t_map *map, t_map *piece, t_board *board)
 		else
 		{
 			if (board->x_start_player < map->x * 3 / 4)
-				return (area2_3(map, piece, board));
+			return (area2_4(map, piece, board));
 			else
 				return (area2_4(map, piece, board));
 		}
