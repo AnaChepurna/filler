@@ -3,10 +3,10 @@
 int				area_1(t_map *map, t_map *piece, t_board *board)
 {
 	board->y_place = map->y;
-	while (board->y_place > 0)
+	while (board->y_place >= 0)
 	{
 		board->x_place = map->x;
-		while (board->x_place > 0)
+		while (board->x_place >= 0)
 		{
 			if (check_place(map, piece, board))
 				return (1);
@@ -20,7 +20,7 @@ int				area_1(t_map *map, t_map *piece, t_board *board)
 int				area_2(t_map *map, t_map *piece, t_board *board)
 {
 	board->y_place = map->y;
-	while (board->y_place > 0)
+	while (board->y_place >= 0)
 	{
 		board->x_place = -1;
 		while (++(board->x_place) < map->x)
@@ -39,7 +39,7 @@ int				area_3(t_map *map, t_map *piece, t_board *board)
 	while (++(board->y_place) < map->y)
 	{
 		board->x_place = map->x;
-		while (board->x_place > 0)
+		while (board->x_place >= 0)
 		{
 			if (check_place(map, piece, board))
 				return (1);

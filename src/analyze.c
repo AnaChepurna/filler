@@ -74,11 +74,11 @@ int		check_rival(t_map *map, char player)
 	int		x;
 	int		y;
 
-	y = 3;
-	while (y < map->y - 3)
+	y = 0;
+	while (y < map->y)
 	{
-		x = 3;
-		while (x < map->x - 3)
+		x = 0;
+		while (x < map->x)
 		{
 			if ((map->map[y][x] == player || map->map[y][x] == player - 32)
 				&& is_near_rival(x, y, map, player))
