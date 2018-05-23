@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef FILLER_H
-#define FILLER_H
+# define FILLER_H
 
 # include "libft/libft.h"
 # include <fcntl.h>
@@ -24,20 +24,20 @@
 
 typedef struct		s_map
 {
-	int 			x;
-	int 			y;
+	int				x;
+	int				y;
 	char			**map;
 }					t_map;
 
-typedef struct 		s_board
+typedef struct		s_board
 {
-	char			player;	
+	char			player;
 	int				y_start_player;
 	int				x_start_player;
 	int				y_start_rival;
 	int				x_start_rival;
 	int				y_place;
-	int				x_place;	
+	int				x_place;
 }					t_board;
 
 /*
@@ -60,19 +60,19 @@ char				get_player(char *name);
 void				get_start_positions(t_board *board, t_map *map);
 int					check_place(t_map *map, t_map *piece, t_board *board);
 int					check_rival(t_map *map, char player);
+int					check_place_rival(t_map *map, t_map *piece,
+	t_board *board);
 
 /*
-**algorythm1.c
+**algorythm1-2.c
 */
 int					algorythm1(t_map *map, t_map *piece, t_board *board);
 int					area_1(t_map *map, t_map *piece, t_board *board);
 int					area_4(t_map *map, t_map *piece, t_board *board);
 int					area_3(t_map *map, t_map *piece, t_board *board);
 int					area_2(t_map *map, t_map *piece, t_board *board);
+int					algorythm2(t_map *map, t_map *piece, t_board *board);
 
-
-int				algorythm2(t_map *map, t_map *piece, t_board *board);
-int		check_place_rival(t_map * map, t_map *piece, t_board *board);
 /*
 **main.c
 */

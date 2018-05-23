@@ -12,7 +12,7 @@
 
 #include "visualizer.h"
 
-static void	init_term(struct termios *old, struct termios *new)
+static void		init_term(struct termios *old, struct termios *new)
 {
 	tcgetattr(2, old);
 	*new = *old;
@@ -22,7 +22,7 @@ static void	init_term(struct termios *old, struct termios *new)
 	(*new).c_cc[VTIME] = 0;
 }
 
-static void	set_term(struct termios new)
+static void		set_term(struct termios new)
 {
 	if (tgetent(NULL, getenv("TERM")) == -1)
 	{
@@ -34,7 +34,7 @@ static void	set_term(struct termios new)
 	tcsetattr(2, TCSANOW, &new);
 }
 
-static void	reset_term(struct termios old)
+static void		reset_term(struct termios old)
 {
 	ft_putstr_fd(tgetstr("ve", NULL), 2);
 	ft_putstr_fd(tgetstr("te", NULL), 2);

@@ -29,7 +29,9 @@
 # define CHR		2
 
 struct termios	*manage_term(int mode);
-int				get_map(int t);
+int				parse_map(int x, int y, int t);
+int				parse_size(int *x, int *y, int t);
 void			start_signal_handling(void);
+void			print_color(char *str, char *color, int mode);
 
 #endif

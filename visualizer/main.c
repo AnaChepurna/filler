@@ -12,9 +12,33 @@
 
 #include "visualizer.h"
 
-int main(int c, char **v)
+void				print_color(char *str, char *color, int mode)
 {
-	int 	t;
+	ft_putstr_fd(color, 2);
+	if (mode == STR)
+	{
+		ft_putstr_fd(str, 2);
+		ft_putstr_fd("\n", 2);
+		free(str);
+	}
+	else if (mode == CHR)
+		ft_putchar_fd(*str, 2);
+	ft_putstr_fd(RESET, 2);
+}
+
+static int			get_map(int t)
+{
+	int		x;
+	int		y;
+
+	if (parse_size(&x, &y, t) && parse_map(x, y, t))
+		return (1);
+	return (0);
+}
+
+int					main(int c, char **v)
+{
+	int	t;
 
 	t = 1;
 	if (c > 1 && ft_strequ(v[1], "-t"))
@@ -37,5 +61,5 @@ int main(int c, char **v)
 		sleep(20);
 		manage_term(RE_SET);
 	}
-	return 0;
+	return (0);
 }

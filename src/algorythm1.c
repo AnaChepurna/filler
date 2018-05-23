@@ -61,7 +61,7 @@ int				area_3(t_map *map, t_map *piece, t_board *board)
 	return (0);
 }
 
-int		area_4(t_map *map, t_map *piece, t_board *board)
+int				area_4(t_map *map, t_map *piece, t_board *board)
 {
 	board->y_place = -1;
 	while (++(board->y_place) < map->y)

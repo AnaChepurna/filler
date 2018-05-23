@@ -30,7 +30,7 @@ char			get_player(char *name)
 	return (0);
 }
 
-static void		parse_size(t_map *map, int *mode)
+static int		parse_size(t_map *map, int *mode)
 {
 	char	*str;
 	int		len;
@@ -48,9 +48,11 @@ static void		parse_size(t_map *map, int *mode)
 			len++;
 		map->x = ft_atoi(str + len);
 		free(str);
-		if ( *mode == MAP && get_next_line(0, &str) > 0)
+		if (*mode == MAP && get_next_line(0, &str) > 0)
 			free(str);
+		return (1);
 	}
+	return (0);
 }
 
 static void		parse_map(t_map *map, int mode)
@@ -82,7 +84,11 @@ t_map			*get_map(void)
 
 	if ((map = new_map()))
 	{
-		parse_size(map, &mode);
+		if (!parse_size(map, &mode))
+		{
+			clear_map(&map);
+			return (NULL);
+		}
 		parse_map(map, mode);
 	}
 	return (map);

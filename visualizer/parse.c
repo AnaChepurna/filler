@@ -12,36 +12,31 @@
 
 #include "visualizer.h"
 
-static void		print_color(char *str, char *color, int mode)
-{
-	ft_putstr_fd(color, 2);
-	if (mode == STR)
-	{
-		ft_putstr_fd(str, 2);
-		ft_putstr_fd("\n", 2);
-		free(str);
-	}
-	else if (mode == CHR)
-		ft_putchar_fd(*str, 2);
-	ft_putstr_fd(RESET, 2);
-}
-
 static int		parse_results(char **str)
 {
-	// ft_putendl_fd(str, 2);
-	// usleep(10000);
 	if (ft_strnequ("==", *str, 2))
 	{
 		print_color(*str, RED, STR);
 		get_next_line(0, str);
 		print_color(*str, RED, STR);
-		//sleep(10);
 		return (1);
 	}
 	return (0);
 }
 
-static int		parse_size(int *x, int *y, int t)
+static void		print_size(char *str, int *y, int *x, int len)
+{
+	ft_putstr_fd(tgetstr("cl", NULL), 2);
+	*y = ft_atoi(str + len);
+	while (ft_isdigit(*(str + len)))
+		len++;
+	*x = ft_atoi(str + len);
+	print_color(str, YELLOW, STR);
+	get_next_line(0, &str);
+	print_color(str, YELLOW, STR);
+}
+
+int				parse_size(int *x, int *y, int t)
 {
 	char	*str;
 	int		len;
@@ -56,14 +51,7 @@ static int		parse_size(int *x, int *y, int t)
 				free(str);
 				return (1);
 			}
-			ft_putstr_fd(tgetstr("cl", NULL), 2);
-			*y = ft_atoi(str + len);
-			while (ft_isdigit(*(str + len)))
-				len++;
-			*x = ft_atoi(str + len);
-			print_color(str, YELLOW, STR);
-			get_next_line(0, &str);
-			print_color(str, YELLOW, STR);
+			print_size(str, y, x, len);
 			return (1);
 		}
 		else if (!parse_results(&str))
@@ -75,11 +63,30 @@ static int		parse_size(int *x, int *y, int t)
 	return (0);
 }
 
-static int		parse_map(int x, int y, int t)
+static void		print_map(char *str, int x)
+{
+	int	j;
+
+	j = -1;
+	while (++j < 4)
+		print_color(str + j, YELLOW, CHR);
+	j = -1;
+	while (++j < x)
+	{
+		if (str[4 + j] == 'O' || str[4 + j] == 'o')
+			print_color(str + j + 4, MAGENTA, CHR);
+		else if (str[4 + j] == 'x' || str[4 + j] == 'X')
+			print_color(str + j + 4, CYAN, CHR);
+		else
+			ft_putchar_fd(str[4 + j], 2);
+	}
+	ft_putstr_fd("\n", 2);
+}
+
+int				parse_map(int x, int y, int t)
 {
 	char	*str;
 	int		i;
-	int		j;
 
 	i = -1;
 	while (++i < y)
@@ -91,36 +98,8 @@ static int		parse_map(int x, int y, int t)
 			free(str);
 			return (1);
 		}
-		j = -1;
-		while (++j < 4)
-			print_color(str + j, YELLOW, CHR);
-		j = -1;
-		while (++j < x)
-		{
-			if (str[4 + j] == 'O' || str[4 + j] == 'o')
-				print_color(str + j + 4, MAGENTA, CHR);
-			else if (str[4 + j] == 'x' || str[4 + j] == 'X')
-				print_color(str + j + 4, CYAN, CHR);
-			else
-				ft_putchar_fd(str[4 + j], 2);
-		}
-		ft_putstr_fd("\n", 2);
+		print_map(str, x);
 		free(str);
 	}
 	return (1);
-}
-
-int			get_map(int t)
-{
-	int		x;
-	int		y;
-
-	if (parse_size(&x, &y, t) && parse_map(x, y, t))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
 }
