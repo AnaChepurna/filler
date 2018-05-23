@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/23 14:28:53 by achepurn          #+#    #+#             */
+/*   Updated: 2018/05/23 14:28:54 by achepurn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../filler.h"
 
 char			get_player(char *name)
@@ -38,16 +50,6 @@ static void		parse_size(t_map *map, int *mode)
 		free(str);
 		if ( *mode == MAP && get_next_line(0, &str) > 0)
 			free(str);
-		else if (*mode == MAP)
-		{
-			ft_putendl_fd("no line", 2);
-			input_error();
-		}
-	}
-	else
-	{
-		ft_putendl_fd("on size parse", 2);
-		input_error();
 	}
 }
 
@@ -62,13 +64,11 @@ static void		parse_map(t_map *map, int mode)
 		i = -1;
 		while (++i < map->y)
 		{
-			if (get_next_line(0, &str) <= 0)
+			if (get_next_line(0, &str) > 0)
 			{
-				ft_putendl_fd("on parse map", 2);
-				input_error();
+				res[i] = ft_strdup(str + mode);
+				free(str);
 			}
-			res[i] = ft_strdup(str + mode);
-			free(str);
 		}
 		res[i] = NULL;
 	}

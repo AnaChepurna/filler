@@ -1,39 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   analyze.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/23 14:28:22 by achepurn          #+#    #+#             */
+/*   Updated: 2018/05/23 14:28:23 by achepurn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../filler.h"
 
-int		check_place(t_map *map, t_map *piece, t_board *board)
+int				check_place(t_map *m, t_map *p, t_board *b)
 {
 	int		x;
 	int		y;
 	int		n;
 
-	if (board->y_place + piece->y > map->y || board->x_place + piece->x > map->x)
+	if (b->y_place + p->y > m->y || b->x_place + p->x > m->x)
 		return (0);
 	n = 0;
 	y = -1;
-	while (++y < piece->y)
+	while (++y < p->y)
 	{
 		x = -1;
-		while (++x < piece->x)
-		{
-			if (piece->map[y][x] == '*')
+		while (++x < p->x)
+			if (p->map[y][x] == '*')
 			{
-				if (map->map[y + board->y_place][x + board->x_place] == board->player - 32
-					|| map->map[y + board->y_place][x + board->x_place] == board->player)
+				if (m->map[y + b->y_place][x + b->x_place] == b->player - 32
+					|| m->map[y + b->y_place][x + b->x_place] == b->player)
 					n++;
-				if (map->map[y + board->y_place][x + board->x_place] == (RIVAL(board->player)) - 32
-					|| map->map[y + board->y_place][x + board->x_place] == (RIVAL(board->player)))
-					return (board->player == P2 ? 1 : 0);
+				if (m->map[y + b->y_place][x + b->x_place] ==
+					(RIVAL(b->player)) - 32 || m->map[y + b->y_place]
+					[x + b->x_place] == (RIVAL(b->player)))
+					return (0);
 			}
-		}
 	}
 	return (n == 1 ? 1 : 0);
 }
 
 static int		is_near_rival(int x, int y, t_map *map, char player)
 {
-	int x1;
-	int y1;
-	char rival;
+	int		x1;
+	int		y1;
+	char	rival;
 
 	rival = RIVAL(player);
 	y1 = y - 1;
@@ -51,25 +62,26 @@ static int		is_near_rival(int x, int y, t_map *map, char player)
 	return (0);
 }
 
-int		check_place_rival(t_map * map, t_map *piece, t_board *board)
+int				check_place_rival(t_map *map, t_map *piece, t_board *board)
 {
 	int x;
 	int y;
 
 	y = -1;
-	while(++y < piece->y)
+	while (++y < piece->y)
 	{
 		x = -1;
 		while (++x < piece->x)
 		{
-			if (piece->map[y][x] == '*' && is_near_rival(x + board->x_place, y + board->y_place, map, board->player))
+			if (piece->map[y][x] == '*' && is_near_rival(x + board->x_place,
+				y + board->y_place, map, board->player))
 				return (1);
 		}
 	}
 	return (0);
 }
 
-int		check_rival(t_map *map, char player)
+int				check_rival(t_map *map, char player)
 {
 	int		x;
 	int		y;
@@ -90,7 +102,7 @@ int		check_rival(t_map *map, char player)
 	return (0);
 }
 
-void	get_start_positions(t_board *board, t_map *map)
+void			get_start_positions(t_board *b, t_map *m)
 {
 	static int	n = 0;
 	int			x;
@@ -99,21 +111,21 @@ void	get_start_positions(t_board *board, t_map *map)
 	if (n++)
 		return ;
 	y = -1;
-	while (++y < map->y)
+	while (++y < m->y)
 	{
 		x = -1;
-		while (++x < map->x)
+		while (++x < m->x)
 		{
-			if (map->map[y][x] == board->player || map->map[y][x] == board->player - 32)
+			if (m->map[y][x] == b->player || m->map[y][x] == b->player - 32)
 			{
-				board->y_start_player = y;
-				board->x_start_player = x;
+				b->y_start_player = y;
+				b->x_start_player = x;
 			}
-			if (map->map[y][x] == (RIVAL(board->player)) ||
-				map->map[y][x] == (RIVAL(board->player) - 32))
+			if (m->map[y][x] == (RIVAL(b->player)) ||
+				m->map[y][x] == (RIVAL(b->player) - 32))
 			{
-				board->y_start_rival = y;
-				board->x_start_rival = x;
+				b->y_start_rival = y;
+				b->x_start_rival = x;
 			}
 		}
 	}
