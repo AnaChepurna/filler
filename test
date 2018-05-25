@@ -1,105 +1,23 @@
-echo map00 carli vs achepurn:
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
+#!/bin/bash
 
-echo map01 carli vs achepurn:
-./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map02 carli vs achepurn
-./filler_vm -f maps/map02 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/carli.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map00 abanlin vs achepurn:
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map01 abanlin vs achepurn:
-./filler_vm -f maps/map01 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map02 abanlin vs achepurn
-./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map00 grati vs achepurn:
-./filler_vm -f maps/map00 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map01 grati vs achepurn:
-./filler_vm -f maps/map01 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map02 grati vs achepurn
-./filler_vm -f maps/map02 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/grati.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map00 hcao vs achepurn:
-./filler_vm -f maps/map00 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map01 hcao vs achepurn:
-./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map02 hcao vs achepurn
-./filler_vm -f maps/map02 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/hcao.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map00 superjeannot vs achepurn:
-./filler_vm -f maps/map00 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map00 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map01 superjeannot vs achepurn:
-./filler_vm -f maps/map01 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map01 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-
-echo map02 superjeannot vs achepurn
-./filler_vm -f maps/map02 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-./filler_vm -f maps/map02 -p1 players/superjeannot.filler -p2 ./achepurn.filler | ./visual -t
-
+echo "\x1B[33m>>MAP00 achepurn.filler vs $1\x1B[0m"
+counter=1
+while [ $counter -le 5 ]
+do
+./filler_vm -f maps/map00 -p2 $1 -p1 ./achepurn.filler | ./visual -t
+((counter++))
+done
+echo "\x1B[33m>>MAP01 achepurn.filler vs $1\x1B[0m"
+counter=1
+while [ $counter -le 5 ]
+do
+./filler_vm -f maps/map01 -p2 $1 -p1 ./achepurn.filler | ./visual -t
+((counter++))
+done
+echo "\x1B[33m>>MAP02 achepurn.filler vs $1\x1B[0m"
+counter=1
+while [ $counter -le 5 ]
+do
+./filler_vm -f maps/map02 -p2 $1 -p1 ./achepurn.filler | ./visual -t
+((counter++))
+done
