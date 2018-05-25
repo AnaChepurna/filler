@@ -26,6 +26,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 $(LIB):
-	make -C ../libft re
+	make -C ../libft
 
 re: fclean all

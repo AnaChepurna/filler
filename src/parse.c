@@ -21,9 +21,15 @@ char			get_player(char *name)
 		if (ft_strstr(str, name))
 		{
 			if (ft_strstr(str, "p1"))
+			{
+				free(str);
 				return (P1);
+			}
 			if (ft_strstr(str, "p2"))
+			{
+				free(str);
 				return (P2);
+			}
 		}
 		free(str);
 	}

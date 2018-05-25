@@ -25,7 +25,7 @@ SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(SRC:.c=.o)
 LIB = libft/libft.a
 
-all: $(NAME)
+all: $(NAME) visual
 
 $(NAME): $(LIB) $(OBJ)
 	$(CC) $(OBJ) libft/libft.a -o $(NAME)
@@ -36,12 +36,17 @@ $(NAME): $(LIB) $(OBJ)
 clean:
 	make -C libft/ clean
 	rm -rf $(OBJ)
+	make -C visualizer/ clean
 
 fclean: clean
 	make -C libft/ fclean
 	rm -rf $(NAME)
+	make -C visualizer/ fclean
 
 $(LIB):
-	make -C libft re
+	make -C libft
+
+visual:
+	make -C visualizer/
 
 re: fclean all
